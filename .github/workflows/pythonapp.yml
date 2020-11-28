@@ -1,10 +1,11 @@
 name: Python application
-
 on:
   push:
-    paths:
-    - 'python/*'
-      
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+          
 jobs:
   build:
 
@@ -23,6 +24,6 @@ jobs:
     - name: Build & Push Image
       run: |
         cd ./python
-        docker login --username=${{secrets.DOCKER_USERNAME}} --password=${{secrets.DOCKER_PASSWORD}}
+        docker login --username fidelis90 --password Timetolaugh90#@
         docker image build -t fidelis90/my-apps:hellov1.0 .
         docker push fidelis90/my-apps:hellov1.0
